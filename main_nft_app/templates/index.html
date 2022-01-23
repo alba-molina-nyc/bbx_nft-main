@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<h1>Items List</h1>
+
+{% for item in object_list %}
+<!-- banner -->
+<div class="Imagereact__DivContainer-sc-dy59cl-0 kMPTZo Image--isImageLoaded Image--isImageLoaderVisible Banner--image" style="">
+    <img alt="Banner Image" class="Image--image" src="{{ item.file }}" style="">
+     <div class="Image--content">
+       <div class="Banner--content"></div>
+       <!-- collection name -->
+       <center>
+       <h1>{{ item.collection }}</h1>
+
+       <p>{{ item.description }} </p>
+       <p>Name: {{ item.name }}</p>
+       <ul>
+        <a> <li>{{ item.details_link }}</li></a>
+           <li> {{ item.properties }}</li>
+           <li> {{ item.levels }}</li>
+           <li> {{ item.stats }}</li>
+           <li> {{ item. }}</li>
+           <li> {{ item.unlockable_content }}</li>
+           <li> {{ item.explicit_or_sensitive_content }}</li>
+           <li> {{ item.supply }}</li>
+           <li> {{ item.blockchain }}</li>
+           <li> {{ item.user }}</li>
+       </ul>
+    </center>
+    
+{% endfor %}
+
+
+
+{% endblock %}
