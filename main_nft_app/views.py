@@ -1,9 +1,15 @@
+from curses import meta
+from importlib.util import LazyLoader
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
+from django.views.generic.detail import DetailView
 from django.views.generic import ListView
 from .models import Item
 from django.shortcuts import render, redirect
-import json
+from django.core.serializers.json import DjangoJSONEncoder
+from django.core.serializers import serialize
+
+
 # Create your views here.
 
 def home(request):
@@ -15,14 +21,19 @@ def assets(request):
 def asset_create(request):
     return render(request, 'asset_create.html')
 
-
 class ItemsIndex(ListView):
     model = Item
     template_name = 'index.html'
-    print(Item)
+
+def ItemsDetail(request, pk):
+    item = Item.objects.get(id=pk)
+    return render(
+        request,
+        'detail.html', {
+            'item': Item,
+    })
 
 
 
-    # def get_queryset(self):
-    #     queryset = Item.objects
-    #     return queryset.filter(user=self.request.user)
+
+

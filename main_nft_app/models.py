@@ -1,5 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
+
+
+
 
 # Create your models here.
 
@@ -8,7 +12,6 @@ class Item(models.Model):
     name = models.CharField(max_length=100, blank=False)
     details_link = models.CharField(max_length=255)
     description = models.TextField()
-    collection = models.CharField(max_length=250, blank=False)
     properties = models.CharField(max_length=100, blank=False)
     levels = models.CharField(max_length=100, blank=False)
     stats = models.CharField(max_length=100, blank=False)
@@ -19,10 +22,24 @@ class Item(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
         
     def __str__(self):
-        return f'{self.name}'
+            return self.name
 
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'pk': self.id})
+        
 
+class Collection(models.Model):
+    collection = models.ForeignKey(Item, on_delete=models.CASCADE)
+    collection_choice_text = models.CharField(max_length=200)
+    
+    def __str__(self):
+        return self.collection_choice_text
 
+# potentially define custom methods for approvals   
+
+# resource
+        
+# https://docs.djangoproject.com/en/4.0/intro/tutorial02/
 
 
 
