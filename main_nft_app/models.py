@@ -3,12 +3,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from django.shortcuts import render, redirect
 
-
-
-
-
 # Create your models here.
-
 class Item(models.Model):
     file = models.CharField(max_length=250, blank=False)
     name = models.CharField(max_length=100, blank=False)

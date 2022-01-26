@@ -2,7 +2,7 @@
 
 {% block main %}
 
-<h1>Items List</h1>
+<h1>Index</h1>
 
 {% for item in object_list%}
 
@@ -10,6 +10,7 @@
     <a href="{% url 'item_urls:detail' item.id %}">
         <div class="card large darken-1 ">
             <div class = "card-image">
+                <br>
                 <img src="{{item.file}}" alt="" class="responsive-img"">
             </div>
             <div class="card-content"> 

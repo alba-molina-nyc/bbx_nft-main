@@ -10,15 +10,14 @@ import json
 from json import JSONEncoder
 from django.core.serializers import serialize
 
+# Create your views here.
 class LazyEncoder(DjangoJSONEncoder):
     def default(self):
         item = Item.objects.all()
         if isinstance(Item, item):
             return str(Item)
         return super(LazyEncoder, self).default(Item)
-    # def get_json(self):
-    #     json_metadata = serialize('json', Item.objects.all(), cls=LazyEncoder)
-    #     return json_metadata
+
 
 def get_json_metadata(request,pk):
     item = Item.objects.get(id = pk)
@@ -29,14 +28,6 @@ def get_json_metadata(request,pk):
           "item": item,
       }
     )
-
-    # return render(request, 'json_metadata.html', 
-    # {
-    #     "json_metadata": json_metadata,
-    # }) 
-
-
-# Create your views here.
 
 class ItemIndex(ListView):
     model = Item
