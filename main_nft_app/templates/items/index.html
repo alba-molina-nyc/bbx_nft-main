@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<h1>Items List</h1>
+
+{% for item in object_list%}
+
+<div class="col s12 m12 l6">
+    <a href="{% url 'item_urls:detail' item.id %}">
+        <div class="card large darken-1 ">
+            <div class = "card-image">
+                <img src="{{item.file}}" alt="" class="responsive-img"">
+            </div>
+            <div class="card-content"> 
+                <h4> {{item.name}} </h4>
+                <h5>{{ item.blockchain }}</h5>
+                <span>{{item.collection}}</span>
+            </div>
+        </div>
+    </a>
+</div>
+{% empty %}
+
+{% endfor %}
+
+
+
+{% endblock %}

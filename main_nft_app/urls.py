@@ -1,12 +1,11 @@
 from django.urls import path
-from . import views
+from . import  views
 
-
+app_name = 'item_urls'
 urlpatterns = [
 # define all app-level URLS in this list
     path('', views.home, name='home'),  
-    path("assets/", views.assets, name = "assets"),
-    path("assets/create/", views.asset_create, name = "asset_create"),
-    path('items/', views.ItemsIndex.as_view(), name='index'),
-    path('items/detail/<int:pk>', views.ItemsDetail, name='detail'),
+    path("items/", views.ItemIndex.as_view(), name = "index"),
+    path("items/<int:pk>/", views.items_detail, name = "detail"),
+    path("items/<int:pk>/metadata/", views.get_json_metadata, name = "json_metadata"),
 ]

@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "to-json-schema": "^0.2.5"
+  }
+}

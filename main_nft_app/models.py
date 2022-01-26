@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from django.shortcuts import render, redirect
+
 
 
 
@@ -22,11 +24,12 @@ class Item(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
         
     def __str__(self):
-            return self.name
+        return f'{self.name}'
 
     def get_absolute_url(self):
-        return reverse('detail', kwargs={'pk': self.id})
-        
+        return reverse('main_nft_app:index')
+
+    
 
 class Collection(models.Model):
     collection = models.ForeignKey(Item, on_delete=models.CASCADE)
@@ -35,11 +38,7 @@ class Collection(models.Model):
     def __str__(self):
         return self.collection_choice_text
 
-# potentially define custom methods for approvals   
 
-# resource
-        
-# https://docs.djangoproject.com/en/4.0/intro/tutorial02/
 
 
 

@@ -34,6 +34,11 @@ ALLOWED_HOSTS = []
 # $ pip install djangorestframework-jsonapi
 # $ pip install django-filter
 
+REST_FRAMEWORK = {
+'DEFAULT_PARSER_CLASSES': [
+    'rest_framework.parsers.JSONParser',
+]}
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

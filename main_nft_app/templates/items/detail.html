@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block main%}
+<div class="container">
+    <h1 class="center">{{ item.name }}</h1>
+    
+    
+        <div class="col s12 ">
+            <div class="card blue-green darken-1 white purple-border z-depth-3">
+                <a href="{% url 'item_urls:json_metadata' item.id %}">
+                <div class="card-content black-text">
+                    <div class="card-image">
+                        <img src="{{ item.file }}" class=""/>
+                    </div>
+                    <div class="card-action">
+                        <span class="card-title">{{item.levels}}</span>
+                        <p>{{ item.blockchain | linebreaksbr }}</p>
+                        <p>{{ item.properties | linebreaksbr }}</p>
+                        <p>{{ item.description | linebreaksbr }}</p>
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
