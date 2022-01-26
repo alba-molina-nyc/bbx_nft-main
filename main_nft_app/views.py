@@ -60,9 +60,4 @@ def home(request):
 
 
 
-# class LazyEncoder(DjangoJSONEncoder):
-#     def default(self, Item):
-#         if isinstance(Item, YourCustomType):
-#             return str(Item)
-#         return super().default(Item)
-# serialize('json', Item.objects.all(), cls=LazyEncoder)
+

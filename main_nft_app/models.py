@@ -22,6 +22,7 @@ class Item(models.Model):
     supply = models.IntegerField(default=1)
     blockchain = models.CharField(max_length=100, blank=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    
         
     def __str__(self):
         return f'{self.name}'
@@ -32,8 +33,9 @@ class Item(models.Model):
     
 
 class Collection(models.Model):
-    collection = models.ForeignKey(Item, on_delete=models.CASCADE)
     collection_choice_text = models.CharField(max_length=200)
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+
     
     def __str__(self):
         return self.collection_choice_text
