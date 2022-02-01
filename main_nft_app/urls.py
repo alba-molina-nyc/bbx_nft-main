@@ -6,6 +6,7 @@ urlpatterns = [
 # define all app-level URLS in this list
     path('', views.home, name='home'),  
     path("items/", views.ItemIndex.as_view(), name = "index"),
+    path('items/create/', views.ItemsCreate.as_view(), name='items_create'),
     path("items/<int:pk>/", views.items_detail, name = "detail"),
     path("items/<int:pk>/metadata/", views.get_json_metadata, name = "json_metadata"),
 ]

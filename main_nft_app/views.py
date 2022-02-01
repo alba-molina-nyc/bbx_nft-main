@@ -5,10 +5,12 @@ from django.views.generic import ListView
 from .models import Item, Collection
 from django.shortcuts import render, redirect
 from django.core.serializers.json import DjangoJSONEncoder
+from django.core.serializers import serialize
+from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from django.core import serializers
 import json
 from json import JSONEncoder
-from django.core.serializers import serialize
+
 
 # Create your views here.
 class LazyEncoder(DjangoJSONEncoder):
@@ -49,6 +51,8 @@ def items_detail(request, pk):
 def home(request):
     return render(request, 'home.html')
 
-
-
-
+class ItemsCreate(CreateView): 
+    model = Item
+    template_name = 'items/item_form.html'
+    fields = '__all__'
+    success_url = '/items/'

@@ -1,5 +1,6 @@
 from typing import ItemsView
 from django.contrib import admin
+
 from .models import Collection, Item
 
 # Register your models here.
